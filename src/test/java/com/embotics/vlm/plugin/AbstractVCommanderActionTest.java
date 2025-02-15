@@ -17,7 +17,6 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.jvnet.hudson.test.JenkinsRule;
 
-import com.embotics.vlm.plugin.VCommanderConfig;
 import com.embotics.vlm.plugin.mock.VCommanderClientMock;
 
 import hudson.model.FreeStyleProject;

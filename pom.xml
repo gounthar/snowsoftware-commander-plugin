@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>4.0</version>
+        <version>4.51</version>
         <relativePath />
     </parent>
     <groupId>io.jenkins.plugins</groupId> 
@@ -13,14 +13,26 @@
     
     <packaging>hpi</packaging>
     <properties>
+        <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
+        <jenkins.baseline>2.346</jenkins.baseline>
         <!-- Baseline Jenkins version you use to build the plugin. Users must have this version or newer to run. -->
-        <jenkins.version>2.164.3</jenkins.version>
-        <java.level>8</java.level>
+        <jenkins.version>${jenkins.baseline}.3</jenkins.version>
     </properties>
     
     <name>Snow Commander Plugin</name>
     <description>Snow Commander integration plugin for Jenkins</description>
     <url>https://github.com/jenkinsci/snowsoftware-commander-plugin</url>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.jenkins.tools.bom</groupId>
+                <artifactId>bom-${jenkins.baseline}.x</artifactId>
+                <version>1763.v092b_8980a_f5e</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <!-- The default licence for Jenkins OSS Plugins is MIT. Substitute for the applicable one if needed. -->
     <licenses>
@@ -34,12 +46,10 @@
 		<dependency>
 			<groupId>org.jenkins-ci.plugins</groupId>
 			<artifactId>credentials</artifactId>
-			<version>1.18</version>
 		</dependency>
 	    <dependency>
 	      <groupId>org.jenkins-ci.plugins</groupId>
 	      <artifactId>structs</artifactId>
-	      <version>1.7</version>
 	    </dependency>
         <dependency>
             <groupId>com.sun.jersey</groupId>
@@ -66,7 +76,7 @@
 
 
     <scm>
-        <connection>scm:git:git://github.com/jenkinsci/snowsoftware-commander-plugin.git</connection>
+        <connection>scm:git:https://github.com/jenkinsci/snowsoftware-commander-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:jenkinsci/snowsoftware-commander-plugin.git</developerConnection>
         <url>https://github.com/jenkinsci/snowsoftware-commander-plugin</url>
       <tag>HEAD</tag>
