@@ -18,7 +18,7 @@ import java.util.List;
 
 import org.jenkinsci.Symbol;
 import org.kohsuke.stapler.DataBoundConstructor;
-import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.StaplerRequest2;
 
 import com.embotics.vlm.rest.v30.client.model.VCommanderException;
 
@@ -78,7 +78,7 @@ public class VCommanderBuilder extends Builder implements SimpleBuildStep {
 	public static final class VCommanderBuilderDescriptor extends BuildStepDescriptor<Builder> {
 		
         @Override
-        public VCommanderBuilder newInstance(StaplerRequest req, JSONObject formData) throws hudson.model.Descriptor.FormException {
+        public VCommanderBuilder newInstance(StaplerRequest2 req, JSONObject formData) throws hudson.model.Descriptor.FormException {
         	VCommanderAction action = bindJSONWithDescriptor(req, formData, PROPERTY_ACTION, VCommanderAction.class);
             return new VCommanderBuilder(action);
         }
@@ -106,7 +106,7 @@ public class VCommanderBuilder extends Builder implements SimpleBuildStep {
 		///////////////////
 		// helper methods
 		
-	    private static <T> T bindJSONWithDescriptor(StaplerRequest req, JSONObject formData, String fieldName, Class<T> expectedClazz) throws hudson.model.Descriptor.FormException {
+	    private static <T> T bindJSONWithDescriptor(StaplerRequest2 req, JSONObject formData, String fieldName, Class<T> expectedClazz) throws hudson.model.Descriptor.FormException {
 	        formData = formData.getJSONObject(fieldName);
 	        if (formData == null || formData.isNullObject()) {
 	            return null;

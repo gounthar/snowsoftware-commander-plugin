@@ -14,7 +14,7 @@ package com.embotics.vlm.plugin.actions;
 import java.io.IOException;
 import java.net.ConnectException;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 import javax.ws.rs.POST;
 
 import org.apache.commons.lang.StringUtils;

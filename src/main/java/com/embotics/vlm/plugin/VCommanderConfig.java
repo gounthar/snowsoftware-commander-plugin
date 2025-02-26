@@ -18,12 +18,12 @@ import java.util.Collections;
 import java.util.List;
 import javax.ws.rs.POST;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 
 import org.apache.commons.lang.StringUtils;
 import org.kohsuke.stapler.AncestorInPath;
 import org.kohsuke.stapler.QueryParameter;
-import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.StaplerRequest2;
 
 import com.cloudbees.plugins.credentials.CredentialsMatchers;
 import com.cloudbees.plugins.credentials.CredentialsProvider;
@@ -120,7 +120,7 @@ public final class VCommanderConfig extends GlobalConfiguration {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean configure(StaplerRequest req, JSONObject json) throws Descriptor.FormException {
+	public boolean configure(StaplerRequest2 req, JSONObject json) throws Descriptor.FormException {
 		req.bindJSON(this, json);
 		save();
 		return true;
